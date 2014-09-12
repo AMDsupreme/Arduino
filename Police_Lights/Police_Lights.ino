@@ -1,5 +1,5 @@
 #include <Adafruit_NeoPixel.h>
-const int pin = 3, PX = 2, numLEDs = 19, half = (int)(numLEDs/2);
+const int pin = 3, PX = 4, numLEDs = 19, half = (int)(numLEDs/2);
 int PXon;
 int OnValue = 0; //This is the variable to change for the PWM on/off trigger
 //18 LEDs
@@ -29,19 +29,52 @@ void loop(){
 
 
 void LightsOn(){
-  for(int i = 0; i < 5; i++){
+  //red lights
+  for(int i = 0; i < 4; i++){
     for(int i = 0; i <= half; i++){
       strip.setPixelColor(i, strip.Color(255,0,0));
       strip.setPixelColor((i + half), strip.Color(0,0,0));
     }
     strip.show();
-    delay(100);
+    delay(50);
+    for(int i = 0; i <= half; i++){
+      strip.setPixelColor(i, strip.Color(0,0,0));
+      strip.setPixelColor((i + half), strip.Color(0,0,0));
+    }
+    strip.show();
+    delay(50);
+  }
+  for(int i = 0; i <= half; i++){
+    strip.setPixelColor(i, strip.Color(255,0,0));
+    strip.setPixelColor((i + half), strip.Color(0,0,0));
+  }
+  strip.show();
+  delay(75);
+  
+  //blue lights
+  for(int i = 0; i < 4; i++){
     for(int i = 0; i <= half; i++){
       strip.setPixelColor(i, strip.Color(0,0,0));
       strip.setPixelColor((i + half), strip.Color(0,0,255));
     }
     strip.show();
-    delay(100);
+    delay(50);
+    for(int i = 0; i <= half; i++){
+      strip.setPixelColor(i, strip.Color(0,0,0));
+      strip.setPixelColor((i + half), strip.Color(0,0,0));
+    }
+    strip.show();
+    delay(50);
   }
+  for(int i = 0; i <= half; i++){
+    strip.setPixelColor(i, strip.Color(0,0,0));
+    strip.setPixelColor((i + half), strip.Color(0,0,255));
+  }
+  strip.show();
+  delay(75);
+
 }
+
+
+
 
