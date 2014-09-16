@@ -1,5 +1,5 @@
 #include <Adafruit_NeoPixel.h>
-const int pin = 3, PX = 4, numLEDs = 19, half = (int)(numLEDs/2);
+const int pin = 3, PX = 4, numLEDs = 20, half = (int)(numLEDs/2);
 int PXon;
 int OnValue = 0; //This is the variable to change for the PWM on/off trigger
 //18 LEDs
