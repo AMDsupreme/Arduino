@@ -16,12 +16,12 @@ void setup(){
 }
 
 void loop(){
-  //PXon = pulseIn(PX, HIGH); //read PWM signal from the
-  if(true){
+  PXon = pulseIn(PX, HIGH, 2000); //read PWM signal from the
+  if(PXon > 1300){
     LightsOn();
   }
   else{
-
+    LightsOff();
   }
 
 
@@ -73,6 +73,13 @@ void LightsOn(){
   strip.show();
   delay(75);
 
+}
+
+void LightsOff(){
+  for(int i = 0; i < numLEDs; i++){
+    strip.setPixelColor(i, strip.Color(0,0,0));
+  }
+  strip.show();
 }
 
 

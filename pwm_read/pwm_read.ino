@@ -1,17 +1,13 @@
 const int px = 4;
-double value;
+int value;
 
 void setup(){
-  pinMode(px, OUTPUT);
+  pinMode(px, INPUT);
   Serial.begin(57600);
 }
 
 void loop(){
- //value = pulseIn(px, HIGH);
+ value = pulseIn(px, HIGH);
  Serial.print(value);
  Serial.println("ms");
- for(int i = 0; i<256; i++){
-   digitalWrite(px, i);
-   delay(25);
- }
 }
