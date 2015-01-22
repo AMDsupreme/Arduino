@@ -1,5 +1,5 @@
 #include <Adafruit_NeoPixel.h>
-const int pin = 3, PX = 4, numLEDs = 20, half = (int)(numLEDs/2);
+const int pin = 3, PX = 4, numLEDs = 19, half = (int)(numLEDs/2-1);
 int PXon;
 int OnValue = 0; //This is the variable to change for the PWM on/off trigger
 //18 LEDs
@@ -16,9 +16,11 @@ void setup(){
 }
 
 void loop(){
-  PXon = pulseIn(PX, HIGH, 2000); //read PWM signal from the
+  PXon = pulseIn(PX, HIGH, 20000); //read PWM signal from the
+  Serial.print(PXon);
+  Serial.println("ms");
   if(PXon > 1300){
-    LightsOn();
+   LightsOn();
   }
   else{
     LightsOff();
